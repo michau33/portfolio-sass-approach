@@ -1,4 +1,5 @@
-$background: '../../assets/bg.jpg';
+$background: '../../assets/coding_2.jpg';
+$primary: #1DE9B6;
 
 @mixin box-shadow( $color ) {
     -webkit-box-shadow: 0px 0px 5px 1px $color;
@@ -21,7 +22,7 @@ $background: '../../assets/bg.jpg';
 .landing {
     background: url( $background );;
     background-size: cover;
-    background-position: center right;
+    background-position: center center;
     height: 100vh;
     font-family: 'Encode Sans Condensed', sans-serif;
     @include flex( space-around, center );
@@ -34,7 +35,7 @@ $background: '../../assets/bg.jpg';
     color: #eceff1;
     text-transform: uppercase;
     padding: .75em 1.5em;
-    border: 1px solid #ff5252;
+    border: 1px solid $primary;
     //@include box-shadow( black );
     text-shadow: 1px 1px 5px black;
     transition: box-shadow 1s;   
@@ -42,7 +43,7 @@ $background: '../../assets/bg.jpg';
 
     &:hover {
         color: white;
-        box-shadow: inset 0 -5em 0 0 rgba(#ff5252, 1);
+        box-shadow: inset 0 -5em 0 0 rgba($primary, 1);
  
          & strong {
              color: white;
@@ -51,7 +52,7 @@ $background: '../../assets/bg.jpg';
 
     & strong {
         font-weight: 700;
-        color: #ff5252;
+        color: $primary;
         text-shadow: 1px 1px 5px black;
         transition: all ease-in-out 1s, box-shadow 1s;
     }
@@ -65,8 +66,9 @@ $background: '../../assets/bg.jpg';
 }
 
 .landing__subtitle {
-    color: white;
+    color: $primary;
     font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .landing__arrow {
@@ -77,14 +79,14 @@ $background: '../../assets/bg.jpg';
     position: absolute;
     bottom: 2em;
     border-radius: 50px;
-    border: 2px dashed white;
+    border: 2px solid white;
     transition: transform ease-in-out .5s;
 
     &::before {
         content: "▼";
         color: white;
         position: relative;
-        transition: transform ease-in-out .5s;
+        transition: all ease-in-out .5s;
     }
 
     &:hover, &:focus {
@@ -92,13 +94,14 @@ $background: '../../assets/bg.jpg';
 
         &::before {
             transform: rotate( 180deg );
+            color: $primary;
         }
     }
 }
 
 @keyframes pulse {
     0% {
-        box-shadow: 0px 0px 0px 0px rgba(#ff5252, .5);
+        box-shadow: 0px 0px 0px 0px rgba($primary, .5);
     }  
 }
 
@@ -113,7 +116,7 @@ $background: '../../assets/bg.jpg';
     @include flex( center, center );
     position: absolute;
     bottom: 5em;
-    border: 1px solid #ff5252;
+    border: 1px solid $primary;
     cursor: pointer;
 
     &:hover {
