@@ -1,0 +1,135 @@
+$background: '../../assets/bg.jpg';
+
+@mixin box-shadow( $color ) {
+    -webkit-box-shadow: 0px 0px 5px 1px $color;
+    -moz-box-shadow: 0px 0px 5px 1px $color;
+    box-shadow: 0px 0px 5px 1px $color;
+}
+
+@mixin box-shadow-hover( $color ) {
+    -webkit-box-shadow: 0px 0px 10px 5px $color;
+    -moz-box-shadow: 0px 0px 10px 5px $color;
+    box-shadow: 0px 0px 10px 5px $color;
+}
+
+@mixin flex( $justify, $align ) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.landing {
+    background: url( $background );;
+    background-size: cover;
+    background-position: center right;
+    height: 100vh;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    @include flex( space-around, center );
+    flex-flow: column;
+}
+
+.landing__title {
+    font-weight: 400;
+    font-size: 2.3rem;
+    color: #eceff1;
+    text-transform: uppercase;
+    padding: .75em 1.5em;
+    border: 1px solid #ff5252;
+    //@include box-shadow( black );
+    text-shadow: 1px 1px 5px black;
+    transition: box-shadow 1s;   
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        box-shadow: inset 0 -5em 0 0 rgba(#ff5252, 1);
+ 
+         & strong {
+             color: white;
+         }
+    }
+
+    & strong {
+        font-weight: 700;
+        color: #ff5252;
+        text-shadow: 1px 1px 5px black;
+        transition: all ease-in-out 1s, box-shadow 1s;
+    }
+
+    
+    @media screen and (min-width: 799px) {
+        & {
+            font-size: 5rem;
+        }
+    }
+}
+
+.landing__subtitle {
+    color: white;
+    font-size: 1rem;
+}
+
+.landing__arrow {
+    height: 30px;
+    width: 30px;
+    padding: .5em;
+    @include flex( center, center );
+    position: absolute;
+    bottom: 2em;
+    border-radius: 50px;
+    border: 2px dashed white;
+    transition: transform ease-in-out .5s;
+
+    &::before {
+        content: "▼";
+        color: white;
+        position: relative;
+        transition: transform ease-in-out .5s;
+    }
+
+    &:hover, &:focus {
+        transform: translateY( 10px );
+
+        &::before {
+            transform: rotate( 180deg );
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0px 0px 0px 0px rgba(#ff5252, .5);
+    }  
+}
+
+.landing__button {
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: white;
+    height: 20px;
+    width: 130px;
+    padding: .5em;
+    @include flex( center, center );
+    position: absolute;
+    bottom: 5em;
+    border: 1px solid #ff5252;
+    cursor: pointer;
+
+    &:hover {
+        color: tomato;
+    }
+
+    &:hover, &:focus .landing__button--pulse {
+        animation: pulse 1s;
+        box-shadow: 0 0 0 1em rgba(#fff, 0);
+    }   
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
