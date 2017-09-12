@@ -1,0 +1,69 @@
+//-----------------
+// Colors
+//-----------------
+
+$primary:#FF6D00;
+$secondary: #00E676;
+
+//-----------------
+// Mixins
+//-----------------
+
+@mixin flex( $justify, $align ) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin nav-shadow( $color ) {
+    -webkit-box-shadow: 1px 1px 5px 0px rgba( $color, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba( $color, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba( $color, 0.75);
+}
+
+@mixin animation( $name, $iteration, $length ) {
+    -webkit-animation-name: $name;  
+    -webkit-animation-iteration-count: $iteration;  
+    -webkit-animation-duration: $length; 
+}
+
+
+// -----------------
+// Media Queries 
+// -----------------
+
+$extra-small: 300px !default;
+$small: 769px !default;
+$medium: 1000px !default;
+$wide: 1192px !default;
+$large: 1384px !default;
+
+@mixin extra-small {
+    @media screen and ( min-width: #{ $extra-small } ) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media screen and ( min-width: #{ $small } ) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media screen and ( min-width: #{ $medium } ) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media screen and ( min-width: #{ $wide } ) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media screen and ( min-width: #{ $large } ) {
+        @content;
+    }
+}

@@ -1,11 +1,88 @@
-$primary: #1DE9B6;
-
 .nav { 
     position: fixed;
     width: 100%;
     top: 0;
     height: 50px;
 }
+
+.nav--desktop {
+    @include flex( space-around, center );
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 50px;
+    @include nav-shadow( black );
+}
+
+.nav__menu--desktop {
+  
+}
+
+
+.nav__home--desktop {
+    @include flex( center, center );
+    border: 1px solid green;
+    height: 50px;
+    width: 50px;
+    color: $primary;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-left: 1px dashed $primary;
+    border-right: 1px dashed $primary;
+    transition: all ease-in-out .1s;
+
+    &:hover {
+        font-size: 1.6rem;
+        color: white;
+    }
+}
+
+.nav__logo--desktop h1 {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $primary;
+}
+
+.menu__icons--desktop {
+    @include flex( center, center);
+    height: 50px;
+    width: 300px;
+}
+
+@-webkit-keyframes changeIconColor {
+    0% { color: $primary; border-color: $primary; }
+    50% { color: $secondary; border-color: $secondary ; }
+    100% { color: $primary; border-color: $primary;}
+}
+
+
+.menu__item--desktop {
+    @include flex( center, center );
+    color: white;
+    list-style-type: none;
+    padding: 0 1em;
+    border-left: 1px dashed $primary;
+    font-size: 1.3rem;
+    height: 100%;
+    cursor: pointer;
+    @include animation( changeIconColor, infinite, 10s );
+
+    &:last-child {
+        border-right: 1px dashed $primary;
+    }
+
+    & i {
+        transition: all ease-in-out .1s;
+    }
+
+    &:hover {
+        & i {
+            transform: scale( 1.3 );
+        }   
+    }
+}
+
 
 .nav__toggle {
     position: absolute;
@@ -53,7 +130,6 @@ $primary: #1DE9B6;
 
     &:hover {
         color: $primary;
-        transform: scale( 1.1 );
     }
 }
 
